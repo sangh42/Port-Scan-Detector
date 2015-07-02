@@ -62,7 +62,11 @@ except (IOError, KeyError):
 
 # Set ratio if provided.
 if len(sys.argv) == 3:
-    SYN_SYNACK_RATIO = float(argv[2])
+    try:
+        SYN_SYNACK_RATIO = float(sys.argv[2])
+    except ValueError:
+        print "invalid ratio value:", sys.argv[2]
+        sys.exit(-1)
 
 #=MAIN========================================================================#
 
