@@ -4,6 +4,10 @@ Runs on Python 2.7 using **dpkt**.
 
 Detects IP addresses that may be executing TCP SYN port scans.
 
+Simple usage through [pipenv](https://pipenv.readthedocs.io/en/latest/):
+
+	$ pipenv run ./detector.py pcap_file
+
 ## In Detail
 
 In a SYN scan, the scanner generates SYN packets to the various ports for a target host. If a port is open, the host will reply with a SYN-ACK packet and the scanner immediately replies with a RST packet to close the connection. Otherwise, if the port is closed, the host just replies with a RST packet.
@@ -20,6 +24,8 @@ Optionally, you can control for the ratio between the number of SYN packets vers
 packets than than the number of SYN-ACK packets they received.)
 
 ## Example
+
+The capture file used in this example is provided as `packets.pcap.xz` in the repo. Note that the file is somewhat large uncompressed (~350MB) and the detector script may take 1-3 minutes to run.
 
 	$ ./detector.py packets.pcap
 
