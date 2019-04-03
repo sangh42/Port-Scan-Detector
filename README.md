@@ -6,6 +6,7 @@ Detects IP addresses that may be executing TCP SYN port scans.
 
 Simple usage through [pipenv](https://pipenv.readthedocs.io/en/latest/):
 
+	$ pipenv install
 	$ pipenv run ./detector.py pcap_file
 
 ## In Detail
